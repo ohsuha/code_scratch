@@ -17,6 +17,7 @@ public class StringTest {
 		long endTime = System.nanoTime();
 		long timeElapsed = endTime - startTime;
 		System.out.println("nano seconds :" +  timeElapsed);
+		// 37977875  32945625  32917417 34730333
 	}
 
 	@Test
@@ -32,6 +33,7 @@ public class StringTest {
 		long endTime = System.nanoTime();
 		long timeElapsed = endTime - startTime;
 		System.out.println("nano seconds :" +  timeElapsed);
+		// 58541 65583 60667 54959
 	}
 
 	@Test
@@ -47,5 +49,6 @@ public class StringTest {
 		long endTime = System.nanoTime();
 		long timeElapsed = endTime - startTime;
 		System.out.println("nano seconds :" +  timeElapsed);
+		// 176459 111792 119459 112792
 	}
 }

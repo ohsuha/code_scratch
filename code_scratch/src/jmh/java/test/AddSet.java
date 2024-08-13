@@ -35,7 +35,7 @@ public class AddSet {
 		 */
 	}
 
-	// @Benchmark
+	@Benchmark
 	public void addHashSet() {
 		set = new HashSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -49,7 +49,7 @@ public class AddSet {
 		 */
 	}
 
-	// @Benchmark
+	@Benchmark
 	public void addTreeSet() {
 		set = new TreeSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -63,7 +63,7 @@ public class AddSet {
 		 */
 	}
 
-	// @Benchmark
+	@Benchmark
 	public void addLinkedHashSet() {
 		set = new LinkedHashSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {

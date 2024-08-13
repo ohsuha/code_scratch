@@ -16,9 +16,9 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 
-@State(Scope.Thread)
-@BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.MICROSECONDS)
+// @State(Scope.Thread)
+// @BenchmarkMode(Mode.AverageTime)
+// @OutputTimeUnit(TimeUnit.MICROSECONDS)
 public class ReadSet {
 	int READ_COUNT = 1000;
 	String data = "abcdefghijklmnopqrxyz";
@@ -33,7 +33,7 @@ public class ReadSet {
 	 ReadSet.iterateTreeSet            avgt   10   7.270 ± 0.628  us/op
 	 */
 
-	@Setup(Level.Trial)
+	// @Setup(Level.Trial)
 	public void SetUp() {
 		hashSet = new HashSet<>();
 		treeSet = new TreeSet<>();
@@ -46,7 +46,7 @@ public class ReadSet {
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void iterateHashSet() {
 		Iterator<String> iter = hashSet.iterator();
 		while (iter.hasNext()){
@@ -54,7 +54,7 @@ public class ReadSet {
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void iterateTreeSet() {
 		Iterator<String> iter = treeSet.iterator();
 		while (iter.hasNext()){
@@ -62,7 +62,7 @@ public class ReadSet {
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void iterateLinkedHashSet() {
 		Iterator<String> iter = linkedHashSet.iterator();
 		while (iter.hasNext()){

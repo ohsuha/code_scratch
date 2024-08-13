@@ -16,14 +16,11 @@ import org.openjdk.jmh.annotations.State;
 @State(Scope.Thread)
 @BenchmarkMode(Mode.AverageTime)
 @OutputTimeUnit(TimeUnit.MICROSECONDS)
-public class BestSet {
+public class AddSet {
 	int LOOP_COUNT = 1000;
 	Set<String> set;
 	String data = "abcdefghijklmnopqrxyz";
 
-	/**
-	 * ADD
-	 */
 	@Benchmark
 	public void addHashSetWithInitialSize() {
 		set = new HashSet<>(LOOP_COUNT);
@@ -38,7 +35,7 @@ public class BestSet {
 		 */
 	}
 
-	// @Benchmark
+	@Benchmark
 	public void addHashSet() {
 		set = new HashSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -52,7 +49,7 @@ public class BestSet {
 		 */
 	}
 
-	// @Benchmark
+	@Benchmark
 	public void addTreeSet() {
 		set = new TreeSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -66,7 +63,7 @@ public class BestSet {
 		 */
 	}
 
-	// @Benchmark
+	@Benchmark
 	public void addLinkedHashSet() {
 		set = new LinkedHashSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -79,10 +76,4 @@ public class BestSet {
 		 *   CI (99.9%): [59.179, 62.705] (assumes normal distribution)
 		 */
 	}
-
-	/**
-	 * READ
-	 */
-
-
 }

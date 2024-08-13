@@ -4,10 +4,11 @@ plugins {
 }
 
 jmh {
-    iterations = 3
-    warmupIterations = 3
-    fork = 1
+    fork = 2
+    warmupIterations = 5
+    iterations = 5
 }
+
 
 group = 'org.codescratch'
 version = '1.0-SNAPSHOT'
@@ -19,6 +20,8 @@ repositories {
 dependencies {
     testImplementation platform('org.junit:junit-bom:5.9.1')
     testImplementation 'org.junit.jupiter:junit-jupiter'
+    jmh 'org.openjdk.jmh:jmh-core:0.9'
+    jmh 'org.openjdk.jmh:jmh-generator-annprocess:0.9'
 }
 
 test {

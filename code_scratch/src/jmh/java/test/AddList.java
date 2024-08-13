@@ -14,9 +14,9 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
-@State(Scope.Thread)
-@BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.MICROSECONDS)
+// @State(Scope.Thread)
+// @BenchmarkMode(Mode.AverageTime)
+// @OutputTimeUnit(TimeUnit.MICROSECONDS)
 public class AddList {
 	int LOOP_COUNT = 1000;
 	List<String> list;
@@ -30,7 +30,7 @@ public class AddList {
 	 AddList.addVectorWithInitialSize     avgt   10  30.402 ± 1.377  us/op
 	 */
 
-	@Benchmark
+	// @Benchmark
 	public void addArrayListWithInitialSize() {
 		list = new ArrayList<>(LOOP_COUNT);
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -38,7 +38,7 @@ public class AddList {
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void addArrayList() {
 		list = new ArrayList<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -46,7 +46,7 @@ public class AddList {
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void addLinkedList() {
 		list = new LinkedList<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -54,7 +54,7 @@ public class AddList {
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void addVectorWithInitialSize() {
 		list = new Vector<>(LOOP_COUNT);
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -62,12 +62,11 @@ public class AddList {
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void addVector() {
 		list = new Vector<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
 			list.add(data + i);
 		}
 	}
-
 }

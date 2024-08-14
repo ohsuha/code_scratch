@@ -13,67 +13,50 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
-// @State(Scope.Thread)
-// @BenchmarkMode(Mode.AverageTime)
-// @OutputTimeUnit(TimeUnit.MICROSECONDS)
+@State(Scope.Thread)
+@BenchmarkMode(Mode.AverageTime)
+@OutputTimeUnit(TimeUnit.MICROSECONDS)
 public class AddSet {
 	int LOOP_COUNT = 1000;
 	Set<String> set;
 	String data = "abcdefghijklmnopqrxyz";
 
-	// @Benchmark
+	/**
+	 * Benchmark                         Mode  Cnt     Score     Error  Units
+	 * AddSet.addHashSet                 avgt   10    55.701 ±   1.981  us/op
+	 * AddSet.addHashSetWithInitialSize  avgt   10    51.183 ±   1.629  us/op
+	 * AddSet.addLinkedHashSet           avgt   10    60.475 ±   4.723  us/op
+	 * AddSet.addTreeSet                 avgt   10  8279.264 ± 323.274  us/op
+	 */
+	@Benchmark
 	public void addHashSetWithInitialSize() {
 		set = new HashSet<>(LOOP_COUNT);
 		for (int i = 0; i < LOOP_COUNT; i++) {
 			set.add(data + i);
 		}
-		/**
-		 Result "test.BestSet.addHashSetWithInitialSize":
-		 50.281 ±(99.9%) 2.683 us/op [Average]
-		 (min, avg, max) = (48.294, 50.281, 52.109), stdev = 1.775
-		 CI (99.9%): [47.597, 52.964] (assumes normal distribution)
-		 */
 	}
 
-	// @Benchmark
+	@Benchmark
 	public void addHashSet() {
 		set = new HashSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
 			set.add(data + i);
 		}
-		/**
-		 * Result "test.BestSet.addHashSet":
-		 *   55.994 ±(99.9%) 1.410 us/op [Average]
-		 *   (min, avg, max) = (54.814, 55.994, 57.797), stdev = 0.932
-		 *   CI (99.9%): [54.585, 57.404] (assumes normal distribution)
-		 */
 	}
 
-	// @Benchmark
+	@Benchmark
 	public void addTreeSet() {
 		set = new TreeSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
 			set.add(data + i);
 		}
-		/**
-		 * Result "test.BestSet.addTreeSet":
-		 *   8204.519 ±(99.9%) 150.467 us/op [Average]
-		 *   (min, avg, max) = (8113.675, 8204.519, 8403.339), stdev = 99.525
-		 *   CI (99.9%): [8054.052, 8354.986] (assumes normal distribution)
-		 */
 	}
 
-	// @Benchmark
+	@Benchmark
 	public void addLinkedHashSet() {
 		set = new LinkedHashSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
 			set.add(data + i);
 		}
-		/**
-		 * Result "test.BestSet.addLinkedHashSet":
-		 *   60.942 ±(99.9%) 1.763 us/op [Average]
-		 *   (min, avg, max) = (59.010, 60.942, 62.298), stdev = 1.166
-		 *   CI (99.9%): [59.179, 62.705] (assumes normal distribution)
-		 */
 	}
 }

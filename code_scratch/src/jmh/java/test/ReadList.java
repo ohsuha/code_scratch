@@ -15,9 +15,9 @@ import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.Setup;
 import org.openjdk.jmh.annotations.State;
 
-@State(Scope.Thread)
-@BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.MICROSECONDS)
+// @State(Scope.Thread)
+// @BenchmarkMode(Mode.AverageTime)
+// @OutputTimeUnit(TimeUnit.MICROSECONDS)
 public class ReadList {
 	int LOOP_COUNT = 1000;
 	List<String> arrayList;
@@ -31,10 +31,11 @@ public class ReadList {
 	 * ReadList.arrayList         avgt   10    1.970 ±  0.008  us/op
 	 * ReadList.arrayListForeach  avgt   10    1.680 ±  0.055  us/op
 	 * ReadList.linkedList        avgt   10  416.806 ± 41.180  us/op
+	 * ReadList.linkedListPeek    avgt   10    9.663 ±  0.868  us/op
 	 * ReadList.vector            avgt   10   13.317 ±  0.036  us/op
 	 */
 
-	@Setup(Level.Trial)
+	// @Setup(Level.Trial)
 	public void setUp() {
 		arrayList = new ArrayList<>();
 		linkedList = new LinkedList<>();
@@ -47,28 +48,35 @@ public class ReadList {
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void arrayList() {
 		for (int i = 0; i < LOOP_COUNT; i++) {
 			result = arrayList.get(i);
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void vector() {
 		for (int i = 0; i < LOOP_COUNT; i++) {
 			result = vector.get(i);
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void linkedList() {
 		for (int i = 0; i < LOOP_COUNT; i++) {
 			result = linkedList.get(i);
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
+	public void linkedListPeek() {
+		for (int i = 0; i < LOOP_COUNT; i++) {
+			linkedList.stream().peek(d -> result = d);
+		}
+	}
+
+	// @Benchmark
 	public void arrayListForeach() {
 		arrayList.forEach(i -> result = i);
 	}

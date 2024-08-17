@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "me.champeau.jmh" version "0.7.2"
+    id 'io.freefair.lombok' version '8.7.1'
 }
 
 jmh {
@@ -22,6 +23,12 @@ dependencies {
     testImplementation 'org.junit.jupiter:junit-jupiter'
     jmh 'org.openjdk.jmh:jmh-core:0.9'
     jmh 'org.openjdk.jmh:jmh-generator-annprocess:0.9'
+
+    implementation 'org.projectlombok:lombok:1.18.30' // Lombok 의존성
+    annotationProcessor 'org.projectlombok:lombok:1.18.30' // 애너테이션 프로세서 추가
+
+    implementation 'org.slf4j:slf4j-api:2.0.9' // SLF4J API
+    implementation 'ch.qos.logback:logback-classic:1.4.11' // Logback 로깅 구현체
 }
 
 test {

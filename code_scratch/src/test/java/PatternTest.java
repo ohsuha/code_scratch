@@ -6,6 +6,7 @@ import test.pattern.adapter.AdapterServiceA;
 import test.pattern.adapter.AdapterServiceB;
 import test.pattern.adapter.ServiceA;
 import test.pattern.adapter.ServiceB;
+import test.pattern.decoreator.Decorator;
 import test.pattern.proxy.IService;
 import test.pattern.proxy.Proxy;
 import test.pattern.proxy.Service;
@@ -48,5 +49,12 @@ public class PatternTest {
 	public void ClientWithProxy() {
 		IService proxy = new Proxy();
 		log.info(proxy.runSomething());
+	}
+
+	@Test
+	@DisplayName("decorator pattern")
+	public void ClientWithDecorator() {
+		IService decorator = new Decorator();
+		log.info(decorator.runSomething());
 	}
 }

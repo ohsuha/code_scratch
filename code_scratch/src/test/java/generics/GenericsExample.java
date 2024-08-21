@@ -1,11 +1,11 @@
-package test.generics;
+package generics;
 
 import lombok.extern.slf4j.Slf4j;
-import test.generics.Box.FruitBox;
-import test.generics.fruit.Apple;
-import test.generics.fruit.Fruit;
-import test.generics.fruit.Grape;
-import test.generics.juice.Juicer;
+import generics.Box.FruitBox;
+import generics.fruit.Apple;
+import generics.fruit.Fruit;
+import generics.fruit.Grape;
+import generics.juice.Juicer;
 
 @Slf4j
 public class GenericsExample {

@@ -1,4 +1,4 @@
-package test.generics.juice;
+package generics.juice;
 
 public class Juice {
     String name;

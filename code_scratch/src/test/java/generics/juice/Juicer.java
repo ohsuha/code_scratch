@@ -1,7 +1,7 @@
-package test.generics.juice;
+package generics.juice;
 
-import test.generics.Box.FruitBox;
-import test.generics.fruit.Fruit;
+import generics.Box.FruitBox;
+import generics.fruit.Fruit;
 
 public class Juicer {
     public static <T extends Fruit> Juice makeJuice(FruitBox<T> box) {

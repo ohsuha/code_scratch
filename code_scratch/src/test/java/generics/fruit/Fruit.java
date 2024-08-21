@@ -1,6 +1,6 @@
-package test.generics.fruit;
+package generics.fruit;
 
-import test.generics.Eatable;
+import generics.Eatable;
 
 public class Fruit implements Eatable {
     @Override

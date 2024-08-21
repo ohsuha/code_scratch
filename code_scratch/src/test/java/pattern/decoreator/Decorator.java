@@ -1,7 +1,7 @@
-package test.pattern.decoreator;
+package pattern.decoreator;
 
-import test.pattern.proxy.IService;
-import test.pattern.proxy.Service;
+import pattern.proxy.IService;
+import pattern.proxy.Service;
 
 public class Decorator implements IService {
 	Service service;

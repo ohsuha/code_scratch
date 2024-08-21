@@ -1,4 +1,4 @@
-package test.generics;
+package generics;
 
 public interface Eatable {
     String toString();

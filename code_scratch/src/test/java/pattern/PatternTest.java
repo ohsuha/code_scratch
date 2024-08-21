@@ -9,6 +9,7 @@ import pattern.adapter.AdapterServiceB;
 import pattern.adapter.ServiceA;
 import pattern.adapter.ServiceB;
 import pattern.decoreator.Decorator;
+import pattern.factorymethod.AnimalToy;
 import pattern.proxy.IService;
 import pattern.proxy.Proxy;
 import pattern.proxy.Service;
@@ -84,5 +85,23 @@ public class PatternTest {
 
 		dog.playWithOwner();
 		cat.playWithOwner();
+	}
+
+	@Test
+	@DisplayName("factory method pattern")
+	public void factoryMethodTest() {
+		// 팩터리 메서드를 보유한 객체들 생성
+		pattern.factorymethod.Animal dog
+			= new pattern.factorymethod.Dog();
+		pattern.factorymethod.Animal cat
+			= new pattern.factorymethod.Cat();
+
+		// 팩터리 메서드가 반환하는 객체들
+		AnimalToy dogToy = dog.getToy();
+		AnimalToy catToy = cat.getToy();
+
+		// 팩터리 메서드가 반환한 객체들을 사용한다.
+		dogToy.identify();
+		catToy.identify();
 	}
 }

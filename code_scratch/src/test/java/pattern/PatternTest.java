@@ -14,6 +14,12 @@ import pattern.proxy.IService;
 import pattern.proxy.Proxy;
 import pattern.proxy.Service;
 import pattern.singleton.Singleton;
+import pattern.strategy.Soldier;
+import pattern.strategy.Strategy;
+import pattern.strategy.StrategyBow;
+import pattern.strategy.StrategyGun;
+import pattern.strategy.StrategySword;
+import pattern.strategy.Warrior;
 import pattern.tempaltemethod.Animal;
 import pattern.tempaltemethod.Cat;
 import pattern.tempaltemethod.Dog;
@@ -103,5 +109,49 @@ public class PatternTest {
 		// 팩터리 메서드가 반환한 객체들을 사용한다.
 		dogToy.identify();
 		catToy.identify();
+	}
+
+	@Test
+	@DisplayName("Strategy method pattern")
+	public void strategyTest() {
+		Strategy strategy = null;
+
+		Soldier soldier = new Soldier();
+
+		strategy = new StrategyGun();
+		soldier.runContext(strategy);
+
+		strategy = new StrategyBow();
+		soldier.runContext(strategy);
+
+		strategy = new StrategySword();
+		soldier.runContext(strategy);
+	}
+
+	@Test
+	@DisplayName("Template CallBack pattern")
+	public void templateCallBackTest() {
+		Soldier soldier = new Soldier();
+		soldier.runContext(new Strategy() {
+			@Override
+			public void runStrategy() {
+				System.out.println("총 초총 총!!");
+			}
+		});
+
+		soldier.runContext(new Strategy() {
+			@Override
+			public void runStrategy() {
+				System.out.println("칼! 카가갈 칼! 칼!");
+			}
+		});
+	}
+
+	@Test
+	@DisplayName("Template CallBack pattern2")
+	public void templateCallBackTest2() {
+		Warrior warrior = new Warrior();
+		warrior.runContext("총 초총 총총");
+		warrior.runContext("활 화활 활");
 	}
 }

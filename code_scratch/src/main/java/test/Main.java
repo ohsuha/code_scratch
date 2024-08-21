@@ -1,13 +1,9 @@
 package test;
 
-import test.synchronizedtest.Contribute;
-import test.synchronizedtest.statictest.ContributeStatic;
-import test.watcherservicetest.WatcherThread;
-
-import java.io.FileReader;
-import java.net.URISyntaxException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+
+import test.watcherservicetest.WatcherThread;
 
 public class Main {
 	public static void main(String[] args) {

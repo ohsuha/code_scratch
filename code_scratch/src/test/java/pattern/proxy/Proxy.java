@@ -1,4 +1,4 @@
-package test.pattern.proxy;
+package pattern.proxy;
 
 public class Proxy implements IService{
 	IService iService;

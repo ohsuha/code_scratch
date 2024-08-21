@@ -1,4 +1,4 @@
-package test.pattern.adapter;
+package pattern.adapter;
 
 public class AdapterServiceA {
 	ServiceA serviceA = new ServiceA();

@@ -1,4 +1,4 @@
-package test.generics.Box;
+package generics.Box;
 
 import java.util.ArrayList;
 

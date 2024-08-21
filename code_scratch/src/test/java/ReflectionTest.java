@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import lombok.SneakyThrows;
 import lombok.extern.slf4j.Slf4j;
-import test.generics.juice.Juice;
+import generics.juice.Juice;
 
 @Slf4j
 public class ReflectionTest {

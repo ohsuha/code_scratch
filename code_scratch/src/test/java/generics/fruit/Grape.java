@@ -1,4 +1,4 @@
-package test.generics.fruit;
+package generics.fruit;
 
 public class Grape extends Fruit{
     @Override

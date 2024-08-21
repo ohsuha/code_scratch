@@ -1,4 +1,4 @@
-package test.enumtest;
+package enumtest;
 
 public enum Direction {
     EAST(1, ">"),

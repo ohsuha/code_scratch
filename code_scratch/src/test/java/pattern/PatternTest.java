@@ -1,14 +1,17 @@
+package pattern;
+
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import lombok.extern.slf4j.Slf4j;
-import test.pattern.adapter.AdapterServiceA;
-import test.pattern.adapter.AdapterServiceB;
-import test.pattern.adapter.ServiceA;
-import test.pattern.adapter.ServiceB;
-import test.pattern.proxy.IService;
-import test.pattern.proxy.Proxy;
-import test.pattern.proxy.Service;
+import pattern.adapter.AdapterServiceA;
+import pattern.adapter.AdapterServiceB;
+import pattern.adapter.ServiceA;
+import pattern.adapter.ServiceB;
+import pattern.decoreator.Decorator;
+import pattern.proxy.IService;
+import pattern.proxy.Proxy;
+import pattern.proxy.Service;
 
 @Slf4j
 public class PatternTest {
@@ -48,5 +51,12 @@ public class PatternTest {
 	public void ClientWithProxy() {
 		IService proxy = new Proxy();
 		log.info(proxy.runSomething());
+	}
+
+	@Test
+	@DisplayName("decorator pattern")
+	public void ClientWithDecorator() {
+		IService decorator = new Decorator();
+		log.info(decorator.runSomething());
 	}
 }

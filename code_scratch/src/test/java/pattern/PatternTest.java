@@ -12,6 +12,10 @@ import pattern.decoreator.Decorator;
 import pattern.proxy.IService;
 import pattern.proxy.Proxy;
 import pattern.proxy.Service;
+import pattern.singleton.Singleton;
+import pattern.tempaltemethod.Animal;
+import pattern.tempaltemethod.Cat;
+import pattern.tempaltemethod.Dog;
 
 @Slf4j
 public class PatternTest {
@@ -58,5 +62,27 @@ public class PatternTest {
 	public void ClientWithDecorator() {
 		IService decorator = new Decorator();
 		log.info(decorator.runSomething());
+	}
+
+	@Test
+	@DisplayName("singleton pattern")
+	public void ClientWithSingleton() {
+		Singleton singletonA = Singleton.getInstance();
+		Singleton singletonB = Singleton.getInstance();
+		Singleton singletonC = Singleton.getInstance();
+
+		log.info(String.valueOf(singletonA==singletonB)); //true
+		log.info(String.valueOf(singletonC==singletonB)); //true
+		log.info(String.valueOf(singletonC==singletonA)); //true
+	}
+
+	@Test
+	@DisplayName("template method pattern")
+	public void templateMethodTest() {
+		Animal dog = new Dog();
+		Animal cat = new Cat();
+
+		dog.playWithOwner();
+		cat.playWithOwner();
 	}
 }

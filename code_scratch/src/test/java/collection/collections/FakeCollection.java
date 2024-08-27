@@ -1,9 +1,7 @@
-package collection;
+package collection.collections;
 
 import java.util.Objects;
 import java.util.function.Predicate;
-import java.util.stream.Stream;
-import java.util.stream.StreamSupport;
 
 public interface FakeCollection<E> extends FakeIterable<E> {
 	// int를 초과하는 사이즈면 Integer.Maxvalue 리턴함
@@ -15,6 +13,7 @@ public interface FakeCollection<E> extends FakeIterable<E> {
 
 	FakeIterator<E> iterator();
 
+	//
 	Object[] toArray();
 
 	<T> T[] toArray(T[] a);

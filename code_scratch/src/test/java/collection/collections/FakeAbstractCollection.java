@@ -1,8 +1,6 @@
-package collection;
+package collection.collections;
 
 import java.util.Arrays;
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.Objects;
 
 public abstract class FakeAbstractCollection<E> implements FakeCollection<E> {

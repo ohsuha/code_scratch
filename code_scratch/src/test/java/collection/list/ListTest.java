@@ -2,6 +2,7 @@ package collection.list;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Vector;
 
@@ -96,5 +97,14 @@ public class ListTest {
 		log.info(vector.toString());
 		log.info("size : {}", vector.size());
 		log.info("capacity : {}", vector.capacity());
+	}
+
+	@Test
+	public void test4() {
+		List list = new LinkedList();
+		list.add("A");
+		list.add("B");
+		list.add("C");
+
 	}
 }

@@ -1,4 +1,4 @@
-package collection.collections;
+package collection.list;
 
 import java.util.EmptyStackException;
 import java.util.Vector;

@@ -85,10 +85,10 @@ public class GenericsTest {
         Integer[] intArray = {1, 2, 3, 4, 5};
         String[] strArray = {"Hello", "World"};
 
-        <String>printArray(strArray);
+        // <String>printArray(strArray);
         printArray(strArray);
 
-        <Integer>printArray(intArray);
+        // <Integer>printArray(intArray);
         printArray(intArray);
 
         int key = 1;

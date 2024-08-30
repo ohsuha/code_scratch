@@ -42,4 +42,29 @@ public class GenericsTest {
         log.info(Juicer.makeJuice(fruitBox).toString());
         log.info(Juicer.makeJuice(appleBox).toString());
     }
+
+    @Test
+    public void generics03() {
+        String[] strings = createArray(String.class, 10);
+        String[] stirngs1 = {"a", "b", "c", "d"};
+        strings = stirngs1;
+        Integer[] integers = createArray(Integer.class, 10);
+        // integers = stirngs2; //에러
+
+        String[] strings2 = createArray2(String.class, 10);
+        Integer[] integers1 = createArray(Integer.class, 10);
+
+    }
+
+    public <T> T[] createArray(Class<T> clazz, int size) {
+        @SuppressWarnings("unchecked")
+        T[] array = (T[]) java.lang.reflect.Array.newInstance(clazz, size);
+        return array;
+    }
+
+    public <T> String[] createArray2(Class<T> clazz, int size) {
+        @SuppressWarnings("unchecked")
+        String[] array = (String[]) java.lang.reflect.Array.newInstance(clazz, size);
+        return array;
+    }
 }

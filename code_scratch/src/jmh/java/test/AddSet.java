@@ -13,9 +13,9 @@ import org.openjdk.jmh.annotations.OutputTimeUnit;
 import org.openjdk.jmh.annotations.Scope;
 import org.openjdk.jmh.annotations.State;
 
-@State(Scope.Thread)
-@BenchmarkMode(Mode.AverageTime)
-@OutputTimeUnit(TimeUnit.MICROSECONDS)
+// @State(Scope.Thread)
+// @BenchmarkMode(Mode.AverageTime)
+// @OutputTimeUnit(TimeUnit.MICROSECONDS)
 public class AddSet {
 	int LOOP_COUNT = 1000;
 	Set<String> set;
@@ -28,7 +28,7 @@ public class AddSet {
 	 * AddSet.addLinkedHashSet           avgt   10    60.475 ±   4.723  us/op
 	 * AddSet.addTreeSet                 avgt   10  8279.264 ± 323.274  us/op
 	 */
-	@Benchmark
+	// @Benchmark
 	public void addHashSetWithInitialSize() {
 		set = new HashSet<>(LOOP_COUNT);
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -36,7 +36,7 @@ public class AddSet {
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void addHashSet() {
 		set = new HashSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -44,7 +44,7 @@ public class AddSet {
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void addTreeSet() {
 		set = new TreeSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
@@ -52,7 +52,7 @@ public class AddSet {
 		}
 	}
 
-	@Benchmark
+	// @Benchmark
 	public void addLinkedHashSet() {
 		set = new LinkedHashSet<>();
 		for (int i = 0; i < LOOP_COUNT; i++) {
